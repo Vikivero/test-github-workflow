@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install PyLint
-      run: pip install pylint
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint Flask
     - name: PyLint Check
       run: pylint ./app.py
