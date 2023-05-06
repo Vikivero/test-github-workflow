@@ -1,0 +1,19 @@
+name: Python Workflow
+
+on: [push]
+
+jobs:
+  display-python-version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display Python Version
+      run: python --version
+
+  pylint-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install PyLint
+      run: pip install pylint
+    - name: PyLint Check
+      run: pylint ./app.py
